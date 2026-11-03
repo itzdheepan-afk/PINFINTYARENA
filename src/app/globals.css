@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #0A0E09;
+    --foreground: #F3F4F6;
+    --arena-base: #0A0E09;
+    --arena-surface: #101610;
+    --arena-surface-glass: rgba(16, 22, 16, 0.88);
+    --arena-olive-wall: #485324;
+    --arena-olive-glow: rgba(72, 83, 36, 0.22);
+    --arena-olive-border: rgba(92, 106, 46, 0.45);
+    --arena-neon-green: #22C55E;
+    --arena-neon-glow: rgba(34, 197, 94, 0.20);
+    --arena-lamp-warmth: rgba(255, 240, 185, 0.12);
+    --arena-snooker-felt: #0B4D3A;
+    --arena-wood-walnut: #2C1E14;
+    --red-primary: #E03A2F;
+    --red-hover: #c93026;
+    --red-subtle: rgba(224, 58, 47, 0.15);
+    --gray-bg: #101610;
+    --card-border: rgba(92, 106, 46, 0.40);
+  }
+
+  body {
+    background-color: #0A0E09;
+    color: #F3F4F6;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* High-Contrast Form Inputs Throughout Entire Website */
+  input, textarea, select {
+    color: #111827; /* Deep readable text by default */
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #6B7280;
+    opacity: 1;
+  }
+
+  /* When input is on dark containers or has explicit text-white */
+  input.text-white,
+  textarea.text-white,
+  select.text-white,
+  .text-white input,
+  .text-white textarea,
+  .text-white select {
+    color: #FFFFFF !important;
+  }
+}
+
+/* Authentic P∞ Arena Ambiance Theme System */
+.arena-ambient-theme {
+  background-color: #0A0E09;
+  color: #F3F4F6;
+  min-height: 100vh;
+  position: relative;
+  background-image:
+    /* Dome hanging pendant lamps: warm golden spotlight cones beaming down from ceiling */
+    radial-gradient(ellipse 65% 550px at 50% 0px, rgba(255, 240, 185, 0.13) 0%, rgba(255, 230, 155, 0.05) 50%, transparent 80%),
+    radial-gradient(ellipse 45% 420px at 20% 750px, rgba(255, 242, 195, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 420px at 80% 750px, rgba(255, 242, 195, 0.08) 0%, transparent 70%),
+
+    /* Authentic P∞ Arena Olive-Moss Wall washes */
+    radial-gradient(circle 950px at 5% 28%, rgba(72, 83, 36, 0.24) 0%, rgba(55, 64, 28, 0.12) 50%, transparent 75%),
+    radial-gradient(circle 900px at 95% 48%, rgba(78, 90, 39, 0.22) 0%, rgba(60, 70, 30, 0.10) 50%, transparent 75%),
+    radial-gradient(circle 850px at 15% 72%, rgba(68, 79, 34, 0.18) 0%, transparent 70%),
+
+    /* Glowing Lime-Green Wall Neon Creed Sign Halo ("Poo Arena SNOOKER ZONE") */
+    radial-gradient(circle 650px at 88% 18%, rgba(34, 197, 94, 0.16) 0%, rgba(34, 197, 94, 0.05) 55%, transparent 72%),
+    radial-gradient(circle 550px at 8% 52%, rgba(34, 197, 94, 0.11) 0%, transparent 65%),
+
+    /* Championship Snooker Emerald Felt depth */
+    radial-gradient(ellipse 75% 650px at 50% 38%, rgba(11, 77, 58, 0.17) 0%, transparent 72%),
+    radial-gradient(ellipse 75% 650px at 50% 82%, rgba(11, 77, 58, 0.15) 0%, transparent 72%),
+
+    /* PlayStation Lounge subtle blue ambient cove wash */
+    radial-gradient(circle 650px at 92% 78%, rgba(59, 130, 246, 0.09) 0%, transparent 65%),
+
+    /* Dark Walnut Wood Floor warmth ground tone */
+    radial-gradient(ellipse 100% 800px at 50% 100%, rgba(44, 30, 20, 0.35) 0%, rgba(28, 18, 12, 0.15) 60%, transparent 90%),
+
+    /* Master base gradient: Dark Olive Noir */
+    linear-gradient(180deg, #0A0E09 0%, #0D130C 20%, #10160F 40%, #0D120B 70%, #080C07 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.arena-card {
+  background: rgba(16, 22, 16, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(92, 106, 46, 0.40);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.arena-card:hover {
+  border-color: rgba(34, 197, 94, 0.55);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(34, 197, 94, 0.12);
+}
+
+.arena-gold-spotlight {
+  background: radial-gradient(ellipse 60% 70% at 50% 0%, rgba(255, 238, 175, 0.18) 0%, rgba(255, 220, 130, 0.05) 50%, transparent 80%);
+}
+
+.font-display {
+  font-family: var(--font-bebas), "Bebas Neue", "Anton", Impact, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Custom smooth animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 230, 230, 0.8);
+}
+
+/* Pill CTA glow */
+.btn-red-pill {
+  background-color: #E03A2F;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px 0 rgba(224, 58, 47, 0.35);
+}
+
+.btn-red-pill:hover {
+  background-color: #c93026;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(224, 58, 47, 0.45);
+}
+
+.btn-red-pill:active {
+  transform: translateY(0);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E03A2F;
+}
+
+/* Authentic Arena Cinematic Effects */
+@keyframes kenburns-1 {
+  0% {
+    transform: scale(1.0) translate(0%, 0%);
+  }
+  50% {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1.18) translate(1.5%, 1%);
+  }
+}
+
+@keyframes kenburns-2 {
+  0% {
+    transform: scale(1.16) translate(1.5%, 1%);
+  }
+  50% {
+    transform: scale(1.06) translate(0%, -1.5%);
+  }
+  100% {
+    transform: scale(1.14) translate(-2%, 0%);
+  }
+}
+
+@keyframes kenburns-3 {
+  0% {
+    transform: scale(1.04) translate(-1%, 1.5%);
+  }
+  50% {
+    transform: scale(1.15) translate(1%, -1%);
+  }
+  100% {
+    transform: scale(1.08) translate(0%, 0%);
+  }
+}
+
+@keyframes lampPulse {
+  0%, 100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes neonGlowGreen {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.65), 0 0 55px rgba(34, 197, 94, 0.35), inset 0 0 16px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.95), 0 0 85px rgba(34, 197, 94, 0.55), inset 0 0 25px rgba(34, 197, 94, 0.5);
+  }
+}
+
+@keyframes neonGlowBlue {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.65), 0 0 55px rgba(59, 130, 246, 0.35), inset 0 0 16px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.95), 0 0 85px rgba(59, 130, 246, 0.55), inset 0 0 25px rgba(59, 130, 246, 0.5);
+  }
+}
+
+@keyframes neonGlowRed {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(224, 58, 47, 0.65), 0 0 55px rgba(224, 58, 47, 0.35), inset 0 0 16px rgba(224, 58, 47, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(224, 58, 47, 0.95), 0 0 85px rgba(224, 58, 47, 0.55), inset 0 0 25px rgba(224, 58, 47, 0.5);
+  }
+}
+
+/* Neon Signs & Borders with Amplified Glow */
+.neon-box-green {
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.65), 0 0 55px rgba(34, 197, 94, 0.35);
+  animation: neonGlowGreen 3s ease-in-out infinite;
+}
+
+.neon-box-blue {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.65), 0 0 55px rgba(59, 130, 246, 0.35);
+  animation: neonGlowBlue 3s ease-in-out infinite;
+}
+
+.neon-box-red {
+  border: 2px solid #e03a2f;
+  box-shadow: 0 0 25px rgba(224, 58, 47, 0.65), 0 0 55px rgba(224, 58, 47, 0.35);
+  animation: neonGlowRed 3s ease-in-out infinite;
+}
+
+.neon-border-red {
+  border: 2px solid #e03a2f;
+  box-shadow: 0 0 30px rgba(224, 58, 47, 0.75), 0 0 65px rgba(224, 58, 47, 0.4), inset 0 0 18px rgba(224, 58, 47, 0.3);
+}
+
+.neon-border-green {
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.75), 0 0 65px rgba(34, 197, 94, 0.4), inset 0 0 18px rgba(34, 197, 94, 0.3);
+}
+
+.neon-border-blue {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.75), 0 0 65px rgba(59, 130, 246, 0.4), inset 0 0 18px rgba(59, 130, 246, 0.3);
+}
+
+.neon-text-green {
+  color: #4ade80;
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.9), 0 0 25px rgba(34, 197, 94, 0.75);
+}
+
+.neon-text-blue {
+  color: #60a5fa;
+  text-shadow: 0 0 12px rgba(96, 165, 250, 0.9), 0 0 25px rgba(59, 130, 246, 0.75);
+}
+
+.vignette-cinema {
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+}
+
+/* Ultra HD 4K Crystal Clarity Enhancements */
+.ultra-hd-4k-clarity {
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.04) saturate(1.08) brightness(1.02);
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Mobile Touch Optimization */
+@media (max-width: 640px) {
+  .touch-pan-y-custom {
+    touch-action: pan-y;
+  }
+}
+
+
